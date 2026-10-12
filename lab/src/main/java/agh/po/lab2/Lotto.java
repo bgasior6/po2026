@@ -1,4 +1,5 @@
 package agh.po.lab2;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -13,13 +14,15 @@ public class Lotto {
             }
         }
         System.out.println(liczby);
-//        Integer licznik = 0;
-//        for (int i = 0; i < 6; i++) {
-//            if (liczby.get(i) == Integer.parseInt(args[i])) {
-//                licznik++;
-//            }
-//        }
-//        System.out.println(licznik);
+        ArrayList<Integer> argumenty = new ArrayList<>();
+        for (int i = 0; i < 6; i++){
+            argumenty.add(Integer.parseInt(args[i]));
+        }
+        argumenty.retainAll(liczby);
+
+        System.out.println(argumenty.size() + "- tyle trafien");
+
+
         long start = System.currentTimeMillis();
         while (true) {
             ArrayList<Integer> proba = new ArrayList<>();
@@ -30,7 +33,8 @@ public class Lotto {
                 }
             }
             proba.retainAll(liczby);
-            if (proba.size() == 0) {
+            if (proba.size() == 6) {
+                System.out.println(proba);
                 break;
             }
 
