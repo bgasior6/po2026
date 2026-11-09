@@ -1,5 +1,6 @@
 package agh.po.lab3;
-
+import java.util.HashMap;
+import java.util.Map;
 public class CodingBat {
     public boolean parrotTrouble(boolean talking, int hour) {
         if ((hour < 7 || hour > 20) && talking){
@@ -41,12 +42,27 @@ public class CodingBat {
         return a + b + b + a;
     }
 
+    public Map<String, String> mapAB(Map<String, String> map) {
+        if (map.containsKey("a") && map.containsKey("b")) {
+            map.put("ab", map.get("a") + map.get("b"));
+        }
+        return map;
+    }
+
+    public Map<String, Integer> wordLen(String[] strings) {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+
+        for (int i = 0; i < strings.length; i ++){
+            String s = strings[i];
+            map.put(s, s.length());
+        }
+
+        return map;
+    }
+
     public static void main(String[] args){
-        CodingBat testowa = new CodingBat();
-        System.out.println(testowa.parrotTrouble(true, 6));
-        System.out.println(testowa.hasTeen(1, 14, 9));
-        System.out.println(testowa.sum13(new int[]{1, 2, 13, 2}));
-        System.out.println(testowa.makeAbba("a", "B"));
+        CodingBat testowy = new CodingBat();
+        System.out.print(testowy.mapAB(new HashMap<>(Map.of("a", "Hi", "b", "There"))));
     }
 
 }

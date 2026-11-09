@@ -1,5 +1,8 @@
 package agh.po.lab3;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.Assert.*;
 public class CodingBatTest {
     CodingBat test = new CodingBat();
@@ -30,4 +33,11 @@ public class CodingBatTest {
         assertEquals("iphonesamsungsamsungiphone", test.makeAbba("iphone", "samsung"));
         assertEquals("pythonJavaJavapython", test.makeAbba("python", "Java"));
     }
+
+    @org.junit.Test
+    public void mapAB() {
+        assertEquals(Map.of("a", "Hi", "ab", "HiThere", "b", "There"), test.mapAB(new HashMap<>(Map.of("a", "Hi", "b", "There"))));
+        assertEquals(Map.of("a", "Dzien", "ab", "DzienDobry", "b", "Dobry"), test.mapAB(new HashMap<>(Map.of("a", "Dzien", "b", "Dobry"))));
+    }
+
 }
